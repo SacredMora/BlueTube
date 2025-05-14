@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueTube - Видеохостинг</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link id="theme-link" rel="stylesheet" href="css/styles-light.css">
+	 <link rel="shortcut icon" href="img/b.png" type="image/x-icon">
+    <!-- Предзагрузка важных ресурсов -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+        <style>
+        /* Стили для сетки 4x8 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(8, auto);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        
+        /* Стили для кнопок меню */
+        .main-menu {
+            padding: 0;
+        }
+        
+        .main-menu li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        
+        .main-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        .main-menu button:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .main-menu .active button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 1200px) {
+            .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-menu button {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+<a href="index.html" class="logo-link">
+  <img src="img/logo.png" alt="BluTube логотип" class="logo-img">
+</a>
+            </div>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск">
+            <button class="search-button">🔍</button>
+			<button class="menu-toggle" onclick="toggleSidebar()">🍔</button>
+        </div>
+        
+        <div class="header-right">
+  <a href="forum.html" class="register-button">👥</a>
+        </div>
+    </header>
+    <!-- Основное содержимое -->
+    <div class="container">
+        <!-- Боковое меню -->
+        <nav class="sidebar">
+            <ul class="main-menu">
+                <li class="active">
+				<a href="index.html">
+                    <button>
+                        <span>🏠</span> Главная
+                    </button>
+                </li>
+                <li>
+				<a href="404.html">
+                    <button>
+                        <span>📚</span> Библиотека
+                    </button>
+                </li>
+                <li>
+				<a href="history.html">
+                    <button>
+                        <span>⏱️</span> Анонсы новых видео
+                    </button>
+                </li>
+				<li>
+				<a href="statistic.html">
+                    <button>
+                         <span>📺</span> Статистика сайта
+                    </button>
+                </li>
+				<li>
+                    <a href="about.html">
+                        <button>
+                             <span>ℹ️</span> О нас
+                        </button>
+                    </a>
+                </li>
+            </ul>			
+
+ <a>Подписки</a>
+<ul class="subscriptions">
+  <li>
+    <a href="TechReviews.html">
+      <span class="channel-avatar"><img src="img/avatar-techzone.jpg" alt="TechReviews"></span>
+      TechReviews
+    </a>
+  </li>
+  <li>
+    <a href="CookingMaster.html">
+      <span class="channel-avatar"><img src="img/CookingMaster-avatar.jpg" alt="CookingMaster"></span>
+      CookingMaster
+    </a>
+  </li>
+  <li>
+    <a href="TravelVibes.html">
+      <span class="channel-avatar"><img src="img/TravelVibes-avatar.jpg" alt="TravelVibes"></span>
+      TravelVibes
+    </a>
+  </li>
+  <li>
+    <a href="FitLife.html">
+      <span class="channel-avatar"><img src="img/FitLife-avatar.jpg" alt="FitLife"></span>
+      FitLife
+    </a>
+  </li>
+  <li>
+    <a href="GamerZone.html">
+      <span class="channel-avatar"><img src="img/GamerZone-avatar.jpg" alt="GamerZone"></span>
+      GamerZone
+    </a>
+  </li>
+</ul>
+        </nav>
+
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="content">
+            <h1>Анонсы новых видео</h1>
+            
+            <div class="video-grid">
+<!-- Строка 1 -->
+<div class="news-card">
+        <div class="thumbnail">
+            <img src="img/thumb1.jpg" alt="Новый обзор на iPhone">
+        </div>
+        <div class="news-info">
+            <div class="announcement-details">
+                <h3>Новый обзор iPhone 15 Pro Max</h3>
+                <p>Ожидается обзор iPhone 15 Pro Max с подробным тестированием камеры и производительности.</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="news-card">
+        <div class="thumbnail">
+            <img src="img/thumb2.jpg" alt="Рецепт пасты Карбонара">
+        </div>
+        <div class="news-info">
+            <div class="announcement-details">
+                <h3>Новый рецепт пасты Карбонара</h3>
+                <p>Посмотрите новый рецепт пасты Карбонара, который можно приготовить за 15 минут!</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="news-card">
+        <div class="thumbnail">
+            <img src="img/thumb3.jpg" alt="Лучшие места для путешествий в 2024">
+        </div>
+        <div class="news-info">
+            <div class="announcement-details">
+                <h3>Лучшие места для путешествий в 2024 году</h3>
+                <p>Не пропустите новый выпуск о самых красивых местах для отдыха в 2024 году!</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="news-card">
+        <div class="thumbnail">
+            <img src="img/thumb4.jpg" alt="Новая тренировка дома">
+        </div>
+        <div class="news-info">
+            <div class="announcement-details">
+                <h3>Новая тренировка дома без оборудования</h3>
+                <p>Готовьтесь к новой тренировке для дома без дополнительного оборудования!</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Футер -->
+<footer class="footer">
+    <button id="theme-toggle" class="theme-toggle">Темная тема</button>
+</footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        // Обработка меню для мобильных устройств
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+            
+            // Обработка кликов по кнопкам меню
+            const menuButtons = document.querySelectorAll('.main-menu button');
+            menuButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем класс active у всех кнопок
+                    menuButtons.forEach(btn => {
+                        btn.parentElement.classList.remove('active');
+                    });
+                    
+                    // Добавляем класс active текущей кнопке
+                    this.parentElement.classList.add('active');
+                    
+                    // На мобильных устройствах закрываем меню после выбора
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+        });
+		document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.main-menu li');
+    
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Убираем класс active у всех элементов
+            menuItems.forEach(i => i.classList.remove('active'));
+            
+            // Добавляем класс active на текущий элемент
+            item.classList.add('active');
+        });
+    });
+});
+options: {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      labels: {
+        font: {
+          size: window.innerWidth < 600 ? 10 : 14  // Адаптация для телефона
+        },
+        color: getComputedStyle(document.documentElement).getPropertyValue('--text-color') || '#000'
+      }
+    },
+    title: {
+      display: true,
+      text: 'Популярные темы видео',
+      font: {
+        size: window.innerWidth < 600 ? 14 : 18
+      },
+      color: getComputedStyle(document.documentElement).getPropertyValue('--text-color') || '#000'
+    }
+  },
+  scales: {
+    x: {
+      ticks: {
+        font: {
+          size: window.innerWidth < 600 ? 10 : 14
+        },
+        color: getComputedStyle(document.documentElement).getPropertyValue('--text-color') || '#000'
+      }
+    },
+    y: {
+      ticks: {
+        font: {
+          size: window.innerWidth < 600 ? 10 : 14
+        },
+        color: getComputedStyle(document.documentElement).getPropertyValue('--text-color') || '#000'
+      }
+    }
+  }
+}
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
+}
+    </script>
+</body>
+</html>

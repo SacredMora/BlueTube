@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueTube - Видеохостинг</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link id="theme-link" rel="stylesheet" href="css/styles-light.css">
+    <link rel="shortcut icon" href="img/b.png" type="image/x-icon">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+    <style>
+	        /* Стили для кнопок меню */
+        .main-menu {
+            padding: 0;
+        }
+        
+        .main-menu li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        
+        .main-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        .main-menu button:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .main-menu .active button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+		</style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <a href="index.html" class="logo-link">
+                    <img src="img/logo.png" alt="BluTube логотип" class="logo-img">
+                </a>
+            </div>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск">
+            <button class="search-button">🔍</button>
+        </div>
+        
+        <div class="header-right">
+            <a href="forum.html" class="register-button">👥</a>
+        </div>
+    </header>
+
+    <!-- Основное содержимое -->
+    <div class="container">
+        <!-- Боковое меню -->
+        <nav class="sidebar">
+            <ul class="main-menu">
+                <li class="active">
+                    <a href="index.html">
+                        <button>
+                            <span>🏠</span> Главная
+                        </button>
+                    </a>
+                </li>
+                <li>
+                    <a href="404.html">
+                        <button>
+                            <span>📚</span> Библиотека
+                        </button>
+                    </a>
+                </li>
+                <li>
+                    <a href="history.html">
+                        <button>
+                            <span>⏱️</span> Анонсы новых видео
+                        </button>
+                    </a>
+                </li>
+                <li>
+                    <a href="your-channel.html">
+                        <button>
+                             <span>📺</span> Статистика сайта
+                        </button>
+                    </a>
+                </li>
+				<li>
+                    <a href="about.html">
+                        <button>
+                             <span>ℹ️</span> О нас
+                        </button>
+                    </a>
+                </li>
+            </ul>
+
+            <a>Подписки</a>
+            <ul class="subscriptions">
+                <li>
+                    <a href="TechReviews.html">
+                        <span class="channel-avatar"><img src="img/avatar-techzone.jpg" alt="TechReviews"></span>
+                        TechReviews
+                    </a>
+                </li>
+                <li>
+                    <a href="CookingMaster.html">
+                        <span class="channel-avatar"><img src="img/CookingMaster-avatar.jpg" alt="CookingMaster"></span>
+                        CookingMaster
+                    </a>
+                </li>
+                <li>
+                    <a href="TravelVibes.html">
+                        <span class="channel-avatar"><img src="img/TravelVibes-avatar.jpg" alt="TravelVibes"></span>
+                        TravelVibes
+                    </a>
+                </li>
+                <li>
+                    <a href="FitLife.html">
+                        <span class="channel-avatar"><img src="img/FitLife-avatar.jpg" alt="FitLife"></span>
+                        FitLife
+                    </a>
+                </li>
+                <li>
+                    <a href="GamerZone.html">
+                        <span class="channel-avatar"><img src="img/GamerZone-avatar.jpg" alt="GamerZone"></span>
+                        GamerZone
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Центральный контент с графиками -->
+        <div class="content">
+            <h2>Популярные темы видео и каналы</h2>
+            <div class="chart-container">
+                <h3>Популярные темы видео</h3>
+                <canvas id="topicsChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Популярные каналы</h3>
+                <canvas id="channelsChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <button id="theme-toggle" class="theme-toggle">Темная тема</button>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/script.js"></script>
+	<script src="sidebar.js"></script>
+    <script>
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
+}
+Chart.defaults.font.family = "'Segoe UI', 'Roboto', 'Arial', sans-serif";
+Chart.defaults.font.size = 14;
+Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+Chart.defaults.devicePixelRatio = window.devicePixelRatio; // Устраняет размытие
+
+// Цвета тем оформления
+const colors = ["#4e79a7", "#f28e2b", "#e15759", "#76b7b2", "#59a14f"];
+
+// Популярные темы видео
+new Chart(document.getElementById("topicsChart"), {
+    type: "doughnut",
+    data: {
+        labels: ["Технологии", "Еда", "Путешествия", "Фитнес", "Игры"],
+        datasets: [{
+            data: [30, 20, 15, 20, 15],
+            backgroundColor: colors,
+            borderWidth: 2,
+            borderColor: "#fff",
+            hoverOffset: 20,
+        }]
+    },
+    options: {
+        responsive: true,
+        animation: {
+            animateRotate: true,
+            duration: 1000
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim(),
+                    boxWidth: 20,
+                    padding: 15
+                }
+            },
+            tooltip: {
+                backgroundColor: '#333',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                cornerRadius: 6
+            }
+        }
+    }
+});
+
+// Популярные каналы
+new Chart(document.getElementById("channelsChart"), {
+    type: "bar",
+    data: {
+        labels: ["TechReviews", "CookingMaster", "TravelVibes", "FitLife", "GamerZone"],
+        datasets: [{
+            label: 'Подписчики (в тыс.)',
+            data: [1000, 500, 750, 1200, 950],
+            backgroundColor: colors,
+            borderRadius: 6,
+            barThickness: 40,
+        }]
+    },
+    options: {
+        responsive: true,
+        animation: {
+            duration: 800,
+            easing: 'easeOutQuart'
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim()
+                },
+                grid: {
+                    display: false
+                }
+            },
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim()
+                },
+                grid: {
+                    color: 'rgba(0,0,0,0.1)'
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                backgroundColor: '#333',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                cornerRadius: 6
+            }
+        }
+    }
+});
+    </script>
+</body>
+</html>

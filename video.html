@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BluTube | Видео</title>
+  <link rel="stylesheet" href="css/video.css"/>
+</head>
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+ <a href="index.html" class="logo-link">
+  <img src="img/logo.png" alt="BluTube логотип" class="logo-img">
+</a>
+            </div>
+    </header>
+  <div class="content">
+    <main class="main-video">
+      <video controls>
+        <source src="videos/sample.mp4" type="video/mp4" />
+        Ваш браузер не поддерживает видео.
+      </video>
+
+      <h2>Интересное видео</h2>
+      <div class="channel-actions">
+        <div class="channel">
+          <img src="img/noname-avatar.jpg" alt="аватар" />
+          <div>
+            <strong>Coolguy</strong>
+            <p>19,3 тыс. подписчиков</p>
+          </div>
+        </div>
+        <button id="subscribeBtn" class="blue">Подписаться</button>
+      </div>
+
+      <div class="actions">
+        <button id="likeBtn">👍 <span id="likeCount">0</span></button>
+        <button id="dislikeBtn">👎 <span id="dislikeCount">0</span></button>
+      </div>
+
+      <div class="comments-section">
+        <h3>Комментарии</h3>
+        <form id="commentForm">
+          <input type="text" id="commentInput" placeholder="Оставьте комментарий..." required />
+          <button type="submit">Отправить</button>
+        </form>
+        <ul id="commentList"></ul>
+      </div>
+    </main>
+
+ <aside class="sidebar">
+  <h3>Похожие видео</h3>
+
+  <div class="recommendation">
+    <img src="img/thumb1.jpg" alt="prev" />
+    <div>
+      <p>Обзор iPhone 15 Pro Max</p>
+      <small>TechReviews · 1.2M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb2.jpg" alt="prev" />
+    <div>
+      <p>Паста Карбонара за 15 минут</p>
+      <small>CookingMaster · 856K просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb3.jpg" alt="prev" />
+    <div>
+      <p>10 мест для отпуска в 2024</p>
+      <small>TravelVibes · 1.5M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb4.jpg" alt="prev" />
+    <div>
+      <p>Тренировка дома без оборудования</p>
+      <small>FitLife · 723K просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb5.jpg" alt="prev" />
+    <div>
+      <p>Cyberpunk 2077: Полный обзор</p>
+      <small>GameZone · 2.3M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb6.jpg" alt="prev" />
+    <div>
+      <p>MacBook Pro M3 — тест</p>
+      <small>TechReviews · 945K просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb7.jpg" alt="prev" />
+    <div>
+      <p>Тирамису за 10 минут</p>
+      <small>CookingMaster · 1.1M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb8.jpg" alt="prev" />
+    <div>
+      <p>Альпы: путеводитель</p>
+      <small>TravelVibes · 678K просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb9.jpg" alt="prev" />
+    <div>
+      <p>Утренняя зарядка</p>
+      <small>FitLife · 1.4M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb10.jpg" alt="prev" />
+    <div>
+      <p>Starfield: первые впечатления</p>
+      <small>GameZone · 1.8M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb11.jpg" alt="prev" />
+    <div>
+      <p>Samsung Galaxy S24 Ultra</p>
+      <small>TechReviews · 1.3M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb12.jpg" alt="prev" />
+    <div>
+      <p>Стейк идеальной прожарки</p>
+      <small>CookingMaster · 920K просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb13.jpg" alt="prev" />
+    <div>
+      <p>Лучшие пляжи мира</p>
+      <small>TravelVibes · 1.1M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb14.jpg" alt="prev" />
+    <div>
+      <p>Йога для начинающих</p>
+      <small>FitLife · 1.6M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb15.jpg" alt="prev" />
+    <div>
+      <p>Elden Ring: гайд для новичков</p>
+      <small>GameZone · 2.1M просмотров</small>
+    </div>
+  </div>
+
+  <div class="recommendation">
+    <img src="img/thumb16.jpg" alt="prev" />
+    <div>
+      <p>AirPods Pro 2: тест</p>
+      <small>TechReviews · 780K просмотров</small>
+    </div>
+  </div>
+</aside>
+
+  </div>
+<header class="header">
+  <button class="theme-toggle" onclick="toggleTheme()">Темная тема</button>
+</header>
+
+  <script src="js/video.js"></script>
+ 
+</body>
+</html>

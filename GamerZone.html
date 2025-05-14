@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Канал — BluTube</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/channel.css" />
+  <link id="theme-link" rel="stylesheet" href="css/styles-light.css" />
+  <link rel="shortcut icon" href="img/b.png" type="image/x-icon">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+<a href="index.html" class="logo-link">
+  <img src="img/logo.png" alt="BluTube логотип" class="logo-img">
+</a>
+    </div>
+	        <div class="search-bar">
+            <input type="text" placeholder="Поиск">
+            <button class="search-button">🔍</button>
+        </div>
+    <div class="header-right">
+      <a href="forum.html" class="register-button">👥</a>
+    </div>
+  </header>
+
+  <main class="channel-page">
+    <div class="channel-banner">
+      <img src="img/GamerZone-shapka.jpg" alt="Обложка канала">
+    </div>
+
+    <div class="channel-info">
+      <img src="img/GamerZone-avatar.jpg" alt="Аватар" class="channel-avatar">
+      <div class="channel-meta">
+        <h1 class="channel-name">GamerZone</h1>
+        <p class="channel-subs">950 тыс. подписчиков</p>
+      </div>
+      <button id="channel-subscribe" class="subscribe-btn">Подписаться</button>
+    </div>
+
+    <nav class="channel-nav">
+      <ul>
+        <li class="active">Главная</li>
+        <li>Видео</li>
+        <li>Плейлисты</li>
+      </ul>
+    </nav>
+
+<section class="channel-videos">
+  <div class="video-tile" onclick="location.href='video.html'">
+    <img src="img/thumb5.jpg" alt="Превью видео" class="video-thumbnail">
+    <div class="video-info">
+      <img src="img/GamerZone-avatar.jpg" alt="Аватар" class="video-avatar">
+      <div class="video-meta">
+        <h3 class="video-title">Cyberpunk 2077: Полный обзор</h3>
+        <p class="video-channel">GamerZone</p>
+        <p class="video-stats">1 млн просмотров • 5 дней назад</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-tile" onclick="location.href='video.html'">
+    <img src="img/thumb10.jpg" alt="Превью видео" class="video-thumbnail">
+    <div class="video-info">
+      <img src="img/GamerZone-avatar.jpg" alt="Аватар" class="video-avatar">
+      <div class="video-meta">
+        <h3 class="video-title">Starfield: первые впечатления</h3>
+        <p class="video-channel">GamerZone</p>
+        <p class="video-stats">3 млн просмотров • 3 неделий назад</p>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <footer class="footer">
+    <button id="theme-toggle" class="theme-toggle">Темная тема</button>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script>
+    document.getElementById("channel-subscribe").addEventListener("click", function() {
+      this.textContent = this.textContent === "Подписаться" ? "Вы подписаны" : "Подписаться";
+      this.classList.toggle("subscribed");
+    });
+  </script>
+</body>
+</html>

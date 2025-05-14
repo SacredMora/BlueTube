@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BluTube — Регистрация</title>
+  <link rel="stylesheet" href="css/forum.css" />
+</head>
+<body>
+  <header>
+<a href="index.html" class="logo-link">
+  <img src="img/logo.png" alt="BluTube логотип" class="logo-img">
+</a>
+	<header>
+  <button class="back-button" onclick="history.back()">← Назад</button>
+</header>
+
+  </header>
+
+  <main>
+   <center><h1>Регистрация на сайте</h1></center>
+    <form id="registerForm" onsubmit="return validateForm(event)">
+      <label>
+        Логин:
+        <input type="text" name="username" required pattern="^[a-zA-Z0-9_]{4,}$" title="Минимум 4 символа, только буквы, цифры и _" />
+      </label>
+
+      <label>
+        Email:
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Пароль:
+        <input type="password" name="password" required pattern=".{6,}" title="Минимум 6 символов" />
+      </label>
+
+      <label>
+        Дата рождения:
+        <input type="date" name="birthdate" required />
+      </label>
+
+      <label>
+        Страна:
+        <select name="country" required>
+          <option value="">Выберите</option>
+          <option value="ru">Россия</option>
+          <option value="by">Беларусь</option>
+          <option value="ua">Украина</option>
+          <option value="kz">Казахстан</option>
+        </select>
+      </label>
+
+      <label>
+        Телефон:
+        <input type="tel" name="phone" pattern="^\+?\d{10,15}$" required title="Введите номер телефона в международном формате" />
+      </label>
+
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+    <div id="success" style="display:none; margin-top:1rem; color:var(--accent-color);">
+      ✅ Регистрация прошла успешно!
+    </div>
+  </main>
+
+  <script>
+    function sanitize(input) {
+      const div = document.createElement("div");
+      div.innerText = input;
+      return div.innerHTML;
+    }
+
+    function validateForm(e) {
+      e.preventDefault();
+      const form = document.getElementById("registerForm");
+      const formData = new FormData(form);
+
+      for (let [key, value] of formData.entries()) {
+        if (value.includes('<') || value.includes('>') || value.includes('"')) {
+          alert("Некорректные символы в данных!");
+          return false;
+        }
+      }
+
+      document.getElementById("success").style.display = "block";
+      form.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>

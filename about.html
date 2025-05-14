@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueTube - Видеохостинг</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link id="theme-link" rel="stylesheet" href="css/styles-light.css">
+	 <link rel="shortcut icon" href="img/b.png" type="image/x-icon">
+    <!-- Предзагрузка важных ресурсов -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/script.js" as="script">
+	  <link rel="stylesheet" href="css/about.css">
+    <style>
+        /* Стили для сетки 4x8 */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(8, auto);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        
+        /* Стили для кнопок меню */
+        .main-menu {
+            padding: 0;
+        }
+        
+        .main-menu li {
+            list-style: none;
+            margin: 5px 0;
+        }
+        
+        .main-menu button {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+        
+        .main-menu button:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .main-menu .active button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 1200px) {
+            .video-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-menu button {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+ <a href="index.html" class="logo-link">
+  <img src="img/logo.png" alt="BluTube логотип" class="logo-img">
+</a>
+            </div>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск">
+            <button class="search-button">🔍</button>
+			<button class="menu-toggle" onclick="toggleSidebar()">🍔</button>
+        </div>
+        
+        <div class="header-right">
+  <a href="forum.html" class="register-button">👥</a>
+        </div>
+    </header>
+    <!-- Основное содержимое -->
+    <div class="container">
+        <!-- Боковое меню -->
+        <nav class="sidebar">
+            <ul class="main-menu">
+                <li class="active">
+				<a href="index.html">
+                    <button>
+                        <span>🏠</span> Главная
+                    </button>
+                </li>
+                <li>
+				<a href="404.html">
+                    <button>
+                        <span>📚</span> Библиотека
+                    </button>
+                </li>
+                <li>
+				<a href="history.html">
+                    <button>
+                        <span>⏱️</span> Анонсы новых видео
+                    </button>
+                </li>
+				<li>
+				<a href="statistic.html">
+                    <button>
+                         <span>📺</span> Статистика сайта
+                    </button>
+                </li>
+		        <li>
+                    <a href="about.html">
+                        <button>
+                             <span>ℹ️</span> О нас
+                        </button>
+                    </a>
+                </li>
+            </ul>			
+
+
+ <a>Подписки</a>
+<ul class="subscriptions">
+  <li>
+    <a href="TechReviews.html">
+      <span class="channel-avatar"><img src="img/avatar-techzone.jpg" alt="TechReviews"></span>
+      TechReviews
+    </a>
+  </li>
+  <li>
+    <a href="CookingMaster.html">
+      <span class="channel-avatar"><img src="img/CookingMaster-avatar.jpg" alt="CookingMaster"></span>
+      CookingMaster
+    </a>
+  </li>
+  <li>
+    <a href="TravelVibes.html">
+      <span class="channel-avatar"><img src="img/TravelVibes-avatar.jpg" alt="TravelVibes"></span>
+      TravelVibes
+    </a>
+  </li>
+  <li>
+    <a href="FitLife.html">
+      <span class="channel-avatar"><img src="img/FitLife-avatar.jpg" alt="FitLife"></span>
+      FitLife
+    </a>
+  </li>
+  <li>
+    <a href="GamerZone.html">
+      <span class="channel-avatar"><img src="img/GamerZone-avatar.jpg" alt="GamerZone"></span>
+      GamerZone
+    </a>
+  </li>
+</ul>
+</nav>
+<main class="about-main">
+  <h1>О BluTube</h1>
+  <p class="intro-text">
+    BluTube — это современная медиа-платформа, позволяющая пользователям делиться видео, находить интересный контент, следить за любимыми каналами и анализировать статистику просмотров. Мы стремимся объединить творческих людей и зрителей в одном удобном и красивом пространстве.
+  </p>
+
+  <h2>Связаться с нами</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Контакты</h3>
+      <p>📍 <strong>Адрес:</strong><br> г. Петропавловск, ул. Разбитых фонарей 25</p>
+      <p>📞 <strong>Телефон:</strong><br> <a href="tel:+77001234567">+7 (700) 123-45-67</a></p>
+      <p>📧 <strong>Email:</strong><br> <a href="mailto:info@bluetube.ru">info@bluetube.kz</a></p>
+      <p><strong>Соцсети:</strong><br>
+        <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">YouTube</a>
+      </p>
+    </div>
+
+    <div class="contact-form">
+      <h3>Напишите нам</h3>
+      <form>
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+</main>
+  </div>
+    <!-- Футер -->
+<footer class="footer">
+    <button id="theme-toggle" class="theme-toggle">Темная тема</button>
+</footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        // Обработка меню для мобильных устройств
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+            
+            // Обработка кликов по кнопкам меню
+            const menuButtons = document.querySelectorAll('.main-menu button');
+            menuButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Удаляем класс active у всех кнопок
+                    menuButtons.forEach(btn => {
+                        btn.parentElement.classList.remove('active');
+                    });
+                    
+                    // Добавляем класс active текущей кнопке
+                    this.parentElement.classList.add('active');
+                    
+                    // На мобильных устройствах закрываем меню после выбора
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+        });
+		document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.main-menu li');
+    
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Убираем класс active у всех элементов
+            menuItems.forEach(i => i.classList.remove('active'));
+            
+            // Добавляем класс active на текущий элемент
+            item.classList.add('active');
+        });
+    });
+});
+function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('active');
+}
+    </script>
+
+</body>
+</html>
