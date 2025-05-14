@@ -1,0 +1,150 @@
+.channel-banner img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.channel-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.channel-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.channel-meta {
+  flex-grow: 1;
+}
+
+.channel-name {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.channel-subs {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+.subscribe-btn {
+  padding: 8px 16px;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-btn.subscribed {
+  background-color: gray;
+}
+
+.channel-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border);
+  margin: 1rem 0;
+}
+
+.channel-nav li {
+  margin-right: 1rem;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.channel-nav li.active {
+  border-bottom: 3px solid var(--accent);
+  font-weight: bold;
+}
+
+.channel-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.video-card {
+  cursor: pointer;
+  background-color: var(--bg-light);
+  padding: 0.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.02);
+}
+
+.video-card img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  height: 120px;
+}
+
+.video-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+}
+.channel-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.video-tile {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.video-tile:hover {
+  transform: scale(1.02);
+}
+
+.video-thumbnail {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.video-info {
+  display: flex;
+  margin-top: 0.5rem;
+  gap: 0.8rem;
+}
+
+.video-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.video-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-title {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.video-channel,
+.video-stats {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 2px 0;
+}

@@ -1,0 +1,255 @@
+:root {
+  --background: #ffffff;
+  --text: #000000;
+  --accent: #3ea6ff;
+  --card: #f0f0f0;
+}
+
+body.dark {
+  --background: #0f0f0f;
+  --text: #ffffff;
+  --accent: #3ea6ff;
+  --card: #1a1a1a;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.header {
+  background: var(--card);
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: var(--accent);
+  text-align: left;
+  position: relative;
+}
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--header-color, #2c3e50);
+  color: white;
+}
+.theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.main-video {
+  flex: 3;
+}
+
+.main-video video {
+  width: 100%;
+  max-height: 450px;
+  background: #000;
+  border-radius: 8px;
+}
+
+.channel-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.channel {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.channel img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.actions button {
+  background-color: var(--card);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#subscribeBtn.blue {
+  background-color: var(--accent);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: none;
+}
+
+#subscribeBtn.gray {
+  background-color: gray;
+  color: white;
+}
+
+.comments-section {
+  margin-top: 2rem;
+}
+
+#commentForm {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#commentForm input {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--card);
+  color: var(--text);
+}
+
+#commentForm button {
+  background-color: var(--accent);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+#commentList {
+  list-style: none;
+  padding: 0;
+}
+
+#commentList li {
+  background-color: var(--card);
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.sidebar h3 {
+  margin-bottom: 1rem;
+}
+
+.recommendation {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.recommendation img {
+  width: 120px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.recommendation p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.recommendation small {
+  color: #888;
+  font-size: 0.8rem;
+}
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 0.5rem;
+  }
+
+  .main-video video {
+    max-height: 240px;
+  }
+
+  .channel-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .recommendation {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .recommendation img {
+    width: 100px;
+    height: 60px;
+  }
+
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+  }
+
+  .channel img {
+    width: 32px;
+    height: 32px;
+  }
+
+  #commentForm input {
+    padding: 0.4rem;
+  }
+
+  #commentForm button {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .recommendation p {
+    font-size: 0.85rem;
+  }
+
+  .recommendation small {
+    font-size: 0.75rem;
+  }
+}

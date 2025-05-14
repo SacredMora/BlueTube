@@ -1,0 +1,530 @@
+/* Стили для списка подписок */
+.subscriptions {
+    list-style: none;
+    padding: 0;
+}
+
+.subscriptions li {
+    margin: 10px 0;
+}
+
+.subscriptions a {
+    text-decoration: none; /* Убираем стандартное подчеркивание */
+    color: var(--text-color); /* Цвет текста */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.subscriptions a:hover {
+    background-color: var(--hover-color); /* Фон при наведении */
+    color: var(--primary-color); /* Цвет текста при наведении */
+}
+
+.channel-avatar {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+.video-card a {
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; /* Цвет текста будет унаследован */
+}
+
+.video-card a:hover .thumbnail img {
+    opacity: 0.8; /* Эффект при наведении */
+}
+
+.video-card a:hover .video-info h3 {
+    color: var(--primary-color); /* Цвет текста при наведении */
+}
+.sidebar .main-menu li a {
+    display: block;
+    text-decoration: none; /* Убирает подчеркивание с ссылок */
+}
+
+.sidebar .main-menu li button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.sidebar .main-menu li button:hover {
+    background-color: var(--hover-color);
+}
+
+.sidebar .main-menu li.active button {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.sidebar .main-menu li button span {
+    margin-right: 10px;
+}
+
+.sidebar .main-menu li button:focus {
+    outline: none;
+}
+
+.sidebar .main-menu li:last-child button {
+}
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Темная тема */
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #bb86fc;
+    --card-bg: #1e1e1e;
+    --card-hover-bg: #333;
+}
+
+/* Светлая тема */
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --text-color: #000000;
+    --link-color: #1a73e8;
+    --card-bg: #ffffff;
+    --card-hover-bg: #f0f0f0;
+}
+
+/* Применение темы */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+}
+
+/* Карточки новостей */
+.news-card {
+    background-color: var(--card-bg);
+    margin: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.news-card:hover {
+    background-color: var(--card-hover-bg);
+}
+
+.news-card a {
+    display: block;
+    color: inherit; /* Сохраняем цвет текста внутри ссылки */
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid var(--text-color); /* разделитель */
+}
+
+.news-info {
+    padding: 15px;
+}
+
+.announcement-details h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.announcement-details p {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+/* Для светлой темы */
+[data-theme="light"] .news-card {
+    background-color: var(--card-bg);
+}
+
+[data-theme="light"] .news-card:hover {
+    background-color: var(--card-hover-bg);
+}
+/* Секция канала */
+.channel-section {
+    padding: 20px;
+}
+
+/* Художественный список */
+.fancy-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px 0;
+}
+
+.fancy-list li {
+    padding-left: 1.5em;
+    position: relative;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.fancy-list li::before {
+    content: "★";
+    color: var(--link-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+}
+
+/* Красивая таблица */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.styled-table thead {
+    background-color: #444;
+}
+
+.styled-table thead th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.styled-table tbody td {
+    padding: 12px 16px;
+    border-top: 1px solid #555;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.channel-graph {
+  width: 100%;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  box-sizing: border-box;
+}
+
+.channel-graph h3 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+#subscribersChart {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 400px;
+}
+/* По умолчанию нижняя панель скрыта */
+.bottom-nav {
+  display: none;
+}
+
+/* Только для мобильных экранов */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border-top: 1px solid #333;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+    z-index: 1000;
+  }
+
+  .bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+
+  .bottom-nav a span:first-child {
+    font-size: 1.4rem;
+  }
+
+  main {
+    padding-bottom: 4rem; /* чтобы контент не перекрывался панелью */
+  }
+}
+/* Базовые стили кнопки */
+.register-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--accent-color, #1e90ff);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #0073e6;
+}
+
+/* Специальные стили для мобильных */
+@media (max-width: 768px) {
+  .register-button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    top: 0.7rem;
+    right: 0.7rem;
+  }
+}
+.video-page {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.video-player video {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.video-title {
+  font-size: 1.6rem;
+  margin-top: 15px;
+  color: var(--text-color);
+}
+
+.video-description {
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.video-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn, .subscribe-btn {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-btn:hover, .subscribe-btn:hover {
+  transform: scale(1.05);
+}
+
+#subscribeBtn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#subscribeBtn.subscribed {
+  background-color: #444;
+}.back-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  margin-right: 20px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.back-link:hover {
+  background-color: var(--hover-color);
+}
+.channel-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.channel-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.theme-toggle {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  padding: 8px 12px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--accent-color);
+}
+/* Уменьшаем размер контейнера графиков */
+.chart-container {
+    width: 50%; /* Уменьшаем ширину */
+    max-width: 500px; /* Максимальная ширина */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+/* Настройка размеров графиков */
+canvas {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .chart-container {
+        width: 80%; /* На мобильных устройствах графики будут шире */
+    }
+    canvas {
+        height: 300px !important; /* Меньшая высота для мобильных */
+    }
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--header-color, #2c3e50);
+  color: white;
+}
+
+/* Кнопка бургер-меню */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: var(--sidebar-color, #34495e);
+  color: white;
+  padding: 20px;
+}
+
+/* Мобильный вид */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar.active {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+  }
+}
+/* По умолчанию скрываем на узких экранах */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+        position: absolute;
+        top: 60px; /* ниже шапки */
+        left: 0;
+        width: 200px;
+        background-color: var(--background-color);
+        z-index: 1000;
+        padding: 15px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar.active {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}

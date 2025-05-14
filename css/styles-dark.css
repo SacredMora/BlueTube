@@ -1,0 +1,202 @@
+:root {
+    --primary-color: #3da5ff;
+    --text-color: #f1f1f1;
+    --bg-color: #181818;
+    --sidebar-bg: #202020;
+    --card-bg: #282828;
+    --border-color: #383838;
+    --hover-color: #383838;
+}
+
+/* Основные стили */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.search-bar {
+    display: flex;
+    width: 40%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 2px 0 0 2px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.search-button {
+    padding: 0.5rem 1rem;
+    background-color: var(--hover-color);
+    border: 1px solid var(--border-color);
+    border-left: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    padding: 1rem;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+.main-menu li, .subscriptions li {
+    padding: 0.5rem 0;
+    border-radius: 5px;
+    color: var(--text-color);
+}
+
+.main-menu li:hover, .subscriptions li:hover {
+    background-color: var(--hover-color);
+}
+
+.content {
+    flex: 1;
+    padding: 1.5rem;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.video-card {
+    background-color: var(--card-bg);
+    cursor: pointer;
+    transition: transform 0.2s;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-card:hover {
+    transform: scale(1.02);
+}
+
+.thumbnail {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.duration {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+}
+
+.video-info {
+    display: flex;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+.channel-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    font-weight: bold;
+}
+
+.channel-avatar.small {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+}
+
+.details h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.channel-name, .views {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.theme-toggle {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .search-bar {
+        width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-right .upload-btn,
+    .header-right .notifications-btn {
+        display: none;
+    }
+}
